@@ -1,3 +1,7 @@
 # Ignore object files #
 ###################
-*.bak
+*.o
+leibniz_1
+leibniz_2
+leibniz_3
+leibniz_4
