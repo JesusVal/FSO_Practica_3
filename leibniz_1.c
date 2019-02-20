@@ -2,8 +2,10 @@
 #include <sys/time.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <math.h>
 
-#define CICLOS 1000000000
+#define CICLOS 2000000000
+//#define CICLOS 10000
 
 int main()
 {
@@ -16,6 +18,7 @@ int main()
 	
 /*Variables de programa*/
 	int i;
+	double value = 0;
 	
 /*Tiempo inicial: Al inicio de la ejecucion*/
 	gettimeofday(&ts, NULL);
@@ -24,9 +27,12 @@ int main()
 	
 	for(int i = 0 ; i < CICLOS ; i++)
 	{
-		
+		value = value + pow(-1, i)/(2.0*i+1);
+		//printf("pow %f\n",pow(-1,i));
 	}
-	printf("Soy una ejecucion\n");
+	value = value * 4;
+	
+	//printf("Soy una ejecucion %f\n", value);
 	
 	
 /*Tiempo final: Al final de la ejecucion*/
@@ -36,6 +42,7 @@ int main()
 	elapsed_time = (int) (stop_ts - start_ts);
 	printf("proceso %d, %d microsegundos\n", getpid(), elapsed_time);
 	printf("Segundos: %f\n", (double) elapsed_time/1000000.0);
+	printf("Valor aproximado de pi : %f\n", value);
 
 	
 	return 0;
