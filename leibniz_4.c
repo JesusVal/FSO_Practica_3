@@ -19,7 +19,7 @@ int main(int argc, char const *argv[]){
 								key_t key = ftok("./makefile",8);
 								int shmid = shmget(key,sizeof(double) * NTHREADS,0666| IPC_CREAT);
 								double *result = (double*) shmat(shmid,(void*)0,0);
-								printf("PI/4 value in math.h: %1.48lf\n",M_PI );
+								printf("PI value in math.h: %1.48lf\n",M_PI );
 								gettimeofday(&start, NULL);
 
 								for(int i=0; i<NTHREADS; i++) {
